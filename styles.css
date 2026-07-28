@@ -1,0 +1,154 @@
+@keyframes moveostitle {
+    5%{transform: translateY(-4vh) translateX(-4vw)}
+    100%{transform: translateY(-44vh) translateX(-38vw) scale(0.8)}
+}
+
+@keyframes blink {
+  0%, 49% {visibility: hidden}
+  50%,100% {visibility: visible}
+}
+
+@keyframes AfterBoot {
+ 0%{visibility: visible;}
+ 100%{visibility: visible;}
+}
+
+@keyframes textScrollAnim {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes terminalBoot {
+    from {scale:0; visibility: visible;}
+    to {scale:1; visibility: visible;}
+    
+}
+
+html{
+    user-select: none;
+}
+
+body { 
+    background-color:black;
+    margin:0;
+    padding:0; 
+    background-repeat:no-repeat; 
+    background-size:auto; 
+    overflow:hidden
+}
+
+.terminalWindow {
+    position: absolute;
+    bottom: 100px;
+    left:45px;
+    visibility: hidden;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 3px;
+    background-color: black;
+    width: 800px;
+    height:600px;
+
+    animation-name: terminalBoot;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+    animation-duration: 1.25s
+}
+
+.OsTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    margin-bottom:10px;
+    
+    animation-name: moveostitle;
+    animation-delay:2s;
+    animation-timing-function:linear;
+    animation-fill-mode: forwards;
+    animation-duration:0.75s;
+}
+
+.bottomText {
+    animation-name: AfterBoot;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+
+    visibility: hidden;
+    display: inline-block;
+    margin-left: 200px;
+    white-space: nowrap;
+    font-family: "DotGothic16";
+}
+
+.libre-barcode-39-text-regular {
+  font-family: "Libre Barcode 39 Text", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.major-mono-display-regular {
+  font-family: "Major Mono Display", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dotgothic16-regular {
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+#ostitle {
+    color:white;
+    font-size: 50px;
+    font-family:"Major Mono Display";
+    padding-top:10px;
+    padding-left:10px;
+    margin:0;
+    text-align:center;
+}   
+
+#uh_random {
+    animation-name: blink;
+    animation-duration:750ms;
+    animation-iteration-count: 3
+}
+
+#dateDisplay {
+    visibility: hidden;
+    position:absolute;
+    top: 85px;
+    left: 49px;
+    width: fit-content;
+    height: fit-content;
+
+    font-family:"Libre Barcode 39 Text";
+    font-size: 40px;
+    color: white;
+
+    animation-name: AfterBoot;
+    animation-delay: 3.05s;
+    animation-fill-mode: forwards;
+
+}
+
+#scrollingText {
+    animation-name: textScrollAnim;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+
+    position: absolute;
+    bottom: 0;
+    gap:60px;
+    left: 0;
+    color: white;
+    white-space: nowrap;
+    overflow:hidden;
+}
