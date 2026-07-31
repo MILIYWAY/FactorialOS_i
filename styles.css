@@ -3,9 +3,9 @@
     100%{transform: translateY(-44vh) translateX(-38vw) scale(0.8)}
 }
 
-@keyframes blink {
-  0%, 49% {visibility: hidden}
-  50%,100% {visibility: visible}
+@keyframes blink{
+  0%, 49% {opacity: 0;}
+  50%,100% {opacity: 1;}
 }
 
 @keyframes AfterBoot {
@@ -34,26 +34,7 @@ body {
     padding:0; 
     background-repeat:no-repeat; 
     background-size:auto; 
-    overflow:hidden
-}
-
-.terminalWindow {
-    position: absolute;
-    bottom: 100px;
-    left:45px;
-    visibility: hidden;
-    border-style: dashed;
-    border-width: 1px;
-    border-color: white;
-    border-radius: 3px;
-    background-color: black;
-    width: 800px;
-    height:600px;
-
-    animation-name: terminalBoot;
-    animation-delay: 2.5s;
-    animation-fill-mode: forwards;
-    animation-duration: 1.25s
+    overflow:hidden;
 }
 
 .OsTitle {
@@ -72,35 +53,83 @@ body {
     animation-duration:0.75s;
 }
 
-.bottomText {
-    animation-name: AfterBoot;
-    animation-delay: 3s;
-    animation-fill-mode: forwards;
-
-    visibility: hidden;
-    display: inline-block;
-    margin-left: 200px;
-    white-space: nowrap;
-    font-family: "DotGothic16";
+.windowHeaders{
+    opacity: 0;
+    visibility: visible;
+    position:absolute;
+    top: 0vh;
+    justify-self: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    color:rgba(255,255, 255, 0.5);
+    width: 97%;
+    height: 25px;
+    transform: translateY(10px);
+    transition:opacity 0.25s ease, transform 0.25s ease;
 }
 
-.libre-barcode-39-text-regular {
-  font-family: "Libre Barcode 39 Text", system-ui;
-  font-weight: 400;
-  font-style: normal;
+.windowHeaders:hover{
+    transform: translateY(0px);
+    opacity:1
 }
 
-.major-mono-display-regular {
-  font-family: "Major Mono Display", monospace;
-  font-weight: 400;
-  font-style: normal;
+.headerIcons {
+    margin-right: 5px;
+    padding-top:5px
 }
 
-.dotgothic16-regular {
-  font-family: "DotGothic16", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+.iconDiv {
+    position: absolute;
+    right: 0;
 }
+
+    .bottomText {
+        animation-name: AfterBoot;
+        animation-delay: 3s;
+        animation-fill-mode: forwards;
+        
+        visibility: hidden;
+        display: inline-block;
+        margin-left: 200px;
+        white-space: nowrap;
+        font-family: "DotGothic16";
+    }
+
+    .libre-barcode-39-text-regular {
+        font-family: "Libre Barcode 39 Text", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .major-mono-display-regular {
+        font-family: "Major Mono Display", monospace;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .dotgothic16-regular {
+        font-family: "DotGothic16", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .m-plus-1p-regular {
+    font-family: "M PLUS 1p", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+
+    .m-plus-1p-bold {
+    font-family: "M PLUS 1p", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    }
+
+    .m-plus-1p-extrabold {
+    font-family: "M PLUS 1p", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    }
+
 
 
 #ostitle {
@@ -126,15 +155,15 @@ body {
     left: 49px;
     width: fit-content;
     height: fit-content;
-
+    
     font-family:"Libre Barcode 39 Text";
     font-size: 40px;
     color: white;
-
+    
     animation-name: AfterBoot;
     animation-delay: 3.05s;
     animation-fill-mode: forwards;
-
+    
 }
 
 #scrollingText {
@@ -143,7 +172,7 @@ body {
     animation-iteration-count: infinite;
     animation-duration: 7s;
     animation-timing-function: linear;
-
+    
     position: absolute;
     bottom: 0;
     gap:60px;
@@ -151,4 +180,62 @@ body {
     color: white;
     white-space: nowrap;
     overflow:hidden;
+}
+
+#terminalWindow {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 100px;
+    left:45px;
+    visibility: hidden;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: black;
+    width: 800px;
+    height:600px;
+
+    animation-name: terminalBoot;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+    animation-duration: 1.25s
+}
+
+#appSelectionText {
+    visibility: hidden;
+    position: absolute;
+    right: -8vw;
+    top: 50vh;
+    transform: rotate(90deg);
+    font-family: "M PLUS 1p";
+    font-weight: 800;
+    font-size: 100px;
+    font-style: oblique;
+}
+
+#terminalInput {
+    position: absolute;
+    margin-left: 10px;
+    background:transparent;
+    color: white;
+    outline: none;
+    border-color: transparent;
+    caret-color: white;
+    field-sizing: content;
+    max-width: 700px;
+}
+
+#terminalOutput {
+    overflow-y: auto;
+    max-height: 30vh;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: white;
+    scrollbar-width: none;
+}
+
+#terminalOutput::-webkit-scrollbar {
+  display: none;             
 }

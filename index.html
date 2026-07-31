@@ -4,31 +4,63 @@
         <link rel="stylesheet" href="styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Libre+Barcode+39+Text&family=Major+Mono+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Libre+Barcode+39+Text&family=M+PLUS+1p:wght@400;700;800&family=Major+Mono+Display&display=swap" rel="stylesheet">
     </head>
-
     <body>
-
         <div class="OsTitle">
             <svg id= "uh_random" width="20" height="40" style="margin-top: 10px;">
                 <rect width="20" height="40" fill="white"/>
             </svg>
             <p id="ostitle">FactorialOS</p>
         </div>
-
         <div id="dateDisplay"></div>
-
-        <div class="terminalWindow">
-            <p style="color: white;"></p>
+        <div id="terminalWindow">
+            <pre style="color: rgba(255, 255, 255, 0.5); margin-top:3vh; margin-bottom: 20px;width: fit-content;">                                                                                                     
+                @     @-/-/-/-/-/-/-/-/-/-@       
+               @ @     @                 @        
+              @   @     @               @         
+             @     @     @             @          
+            @       @     @           @          
+           @         @     @         @      ( Python Terminal    
+          @           @     @       @             Version 3.14 )
+         @             @     @     @               
+        @               @     @   @                
+       @                 @     @ @
+      @\-\-\-\-\-\-\-\-\-\@     @                    
+</pre>
+<div style="color: white; margin-left:2vw;">
+    <span id="inputThing" style="font-size: 20px;">>>></span><span id="caret" style="margin-left:5px;">-</span>
+    <input id="terminalInput" maxlength="50">
+    <div id="terminalOutput"></div>
+</div>
+            <div id="terminalWindowheader" class="windowHeaders">
+                <div class="iconDiv" style="width: fit-content;">
+                    <svg class="headerIcons" xmlns="http://www.w3.org/2000/svg"
+                    width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/></svg>
+                    <svg class="headerIcons" xmlns="http://www.w3.org/2000/svg"
+                     width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+                    <svg class="headerIcons"xmlns="http://www.w3.org/2000/svg"
+                     width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/></svg>
+                </div>
+            </div>
         </div>
-        
+        <div  id="appSelectionText" style="background:linear-gradient(to right, white 0%, white 50%, black 50%, black 100%
+        );-webkit-text-stroke: 1px white; background-clip: text; -webkit-background-clip: text; width: fit-content; height: fit-content; color:transparent">
+            <b>AppTest</b>
+        </div>
         <div id="scrollingText">
             <p class="bottomText">-ファクトリアルOS-</p><p class="bottomText">-ファクトリアルOS-</p>
             <p class="bottomText">-ファクトリアルOS-</p> <p class="bottomText">-ファクトリアルOS-</p> 
             <p class="bottomText">-ファクトリアルOS-</p> <p class="bottomText">-ファクトリアルOS-</p>
             <p class="bottomText">-ファクトリアルOS-</p> <p class="bottomText">-ファクトリアルOS-</p>
         </div>
-
         <script src="scripts/Main_functions.js"></script>
+        <script src="scripts/windowFunctions.js"></script>
+        <script src="https://cdn.jsdelivr.net/pyodide/v314.0.3/full/pyodide.js"></script>
+        <script src="scripts/Terminal.js"></script>
     </body>
 </html>
